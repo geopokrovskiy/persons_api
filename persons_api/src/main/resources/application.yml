@@ -1,0 +1,29 @@
+server:
+    port: 8083
+
+spring:
+  application:
+    name: persons_api
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/persons_api
+    username: postgres
+    password: root
+    pool:
+      initial-size: 1
+      max-size: 10
+      max-idle-time: 30m
+  flyway:
+    url: jdbc:postgresql://localhost:5432/persons_api
+    locations: classpath:db/migration
+    user: ${spring.r2dbc.username}
+    password: ${spring.r2dbc.password}
+
+logging:
+  level:
+    org.springframework.web: INFO
+
+
+
+
+
+
