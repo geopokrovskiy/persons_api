@@ -86,7 +86,7 @@ public class IndividualService {
                             .updated(savedBaseUser.getUpdated())
                             .build();
                 }).doOnSuccess(individual -> {
-                    log.info("A new user {} has been added!", individual);
+                    log.info("A new individual user {} has been added!", individual);
                 })
                 .as(transactionalOperator::transactional);
     }

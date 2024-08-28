@@ -44,12 +44,17 @@ public class AppErrorAttributes extends DefaultErrorAttributes {
             errorMap.put("code", ((ApiException) error).getErrorCode());
             errorMap.put("message", error.getMessage());
             errorList.add(errorMap);
+        } else if (error instanceof IllegalArgumentException) {
+            status = HttpStatus.BAD_REQUEST;
+            var errorMap = new LinkedHashMap<String, Object>();
+            errorMap.put("code", "Invalid input");
+            errorMap.put("message", error.getMessage());
+            errorList.add(errorMap);
         } else {
             status = HttpStatus.INTERNAL_SERVER_ERROR;
             var message = error.getMessage();
             if (message == null)
                 message = error.getClass().getName();
-
             var errorMap = new LinkedHashMap<String, Object>();
             errorMap.put("code", "INTERNAL_ERROR");
             errorMap.put("message", message);

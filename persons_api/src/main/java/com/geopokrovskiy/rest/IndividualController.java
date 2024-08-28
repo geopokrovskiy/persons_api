@@ -6,6 +6,8 @@ import com.geopokrovskiy.mapper.address.AddressMapper;
 import com.geopokrovskiy.mapper.user.IndividualMapper;
 import com.geopokrovskiy.service.IndividualService;
 import lombok.Data;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -21,18 +23,18 @@ public class IndividualController {
     private final AddressMapper addressMapper;
 
     @PostMapping
-    public Mono<IndividualResponseDto> addNewIndividual(@RequestBody IndividualRequestDto individualRequestDto) {
-        return individualService.addNewIndividual(individualMapper.map(individualRequestDto),
-                addressMapper.map(individualRequestDto.getAddress())).map(individualMapper::map);
+    public ResponseEntity<Mono<IndividualResponseDto>> addNewIndividual(@RequestBody IndividualRequestDto individualRequestDto) {
+        return new ResponseEntity<>(individualService.addNewIndividual(individualMapper.map(individualRequestDto),
+                addressMapper.map(individualRequestDto.getAddress())).map(individualMapper::map), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public Mono<IndividualResponseDto> getIndividualById(@PathVariable UUID id) {
-        return individualService.getIndividualById(id).map(individualMapper::map);
+    public ResponseEntity<Mono<IndividualResponseDto>> getIndividualById(@PathVariable UUID id) {
+        return new ResponseEntity<>(individualService.getIndividualById(id).map(individualMapper::map), HttpStatus.OK);
     }
 
     @GetMapping("/all")
-    public Flux<IndividualResponseDto> getAllIndividuals() {
-        return individualService.getAllIndividuals().map(individualMapper::map);
+    public ResponseEntity<Flux<IndividualResponseDto>> getAllIndividuals() {
+        return new ResponseEntity<>(individualService.getAllIndividuals().map(individualMapper::map), HttpStatus.OK);
     }
 }

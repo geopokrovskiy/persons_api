@@ -15,7 +15,9 @@ import reactor.core.publisher.Mono;
 @EnableReactiveMethodSecurity
 public class WebSecurityConfig {
 
-    private final String[] publicRoutes = {"/api/v1/countries/**", "/api/v1/user/individuals/**"};
+    private final String[] publicRoutes = {"/api/v1/countries/**",
+            "/api/v1/user/individuals/**",
+            "/api/v1/user/merchants/**"};
 
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
