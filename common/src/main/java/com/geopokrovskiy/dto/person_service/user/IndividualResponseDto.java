@@ -1,8 +1,8 @@
-package com.geopokrovskiy.dto.user;
+package com.geopokrovskiy.dto.person_service.user;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.geopokrovskiy.dto.address.AddressResponseDto;
+import com.geopokrovskiy.dto.person_service.address.AddressResponseDto;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -10,10 +10,12 @@ import java.util.UUID;
 
 @Data
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class MerchantMemberResponseDto {
+public class IndividualResponseDto {
     private UUID id;
     private UUID userId;
-    private String memberRole;
+    private String passportNumber;
+    private String phoneNumber;
+    private String email;
     private String firstName;
     private String lastName;
     private LocalDateTime created;

@@ -1,8 +1,8 @@
-package com.geopokrovskiy.dto.user;
+package com.geopokrovskiy.dto.person_service.user;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.geopokrovskiy.dto.address.AddressRequestDto;
+import com.geopokrovskiy.dto.person_service.address.AddressRequestDto;
 import lombok.Data;
 
 @Data

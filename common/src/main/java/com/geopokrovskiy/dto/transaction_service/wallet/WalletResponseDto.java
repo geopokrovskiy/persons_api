@@ -1,4 +1,4 @@
-package com.geopokrovskiy.dto.merchant;
+package com.geopokrovskiy.dto.transaction_service.wallet;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -6,10 +6,5 @@ import lombok.Data;
 
 @Data
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class MerchantCreateRequestDto {
-
-    private String companyName;
-    private String companyId;
-    private String email;
-    private String phoneNumber;
+public class WalletResponseDto {
 }

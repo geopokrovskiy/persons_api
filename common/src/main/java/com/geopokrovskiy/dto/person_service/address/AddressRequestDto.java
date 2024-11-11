@@ -1,4 +1,4 @@
-package com.geopokrovskiy.dto.address;
+package com.geopokrovskiy.dto.person_service.address;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

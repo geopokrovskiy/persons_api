@@ -1,8 +1,8 @@
-package com.geopokrovskiy.dto.address;
+package com.geopokrovskiy.dto.person_service.address;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.geopokrovskiy.dto.country.CountryResponseDto;
+import com.geopokrovskiy.dto.person_service.country.CountryResponseDto;
 import lombok.Data;
 
 import java.time.LocalDateTime;
