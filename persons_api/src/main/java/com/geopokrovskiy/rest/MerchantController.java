@@ -4,6 +4,11 @@ import com.geopokrovskiy.dto.invitation.InvitationCreateRequestDto;
 import com.geopokrovskiy.dto.invitation.InvitationResponseDto;
 import com.geopokrovskiy.dto.merchant.MerchantCreateRequestDto;
 import com.geopokrovskiy.dto.merchant.MerchantResponseDto;
+import com.geopokrovskiy.dto.person_service.invitation.InvitationCreateRequestDto;
+import com.geopokrovskiy.dto.person_service.invitation.InvitationResponseDto;
+import com.geopokrovskiy.dto.person_service.merchant.MerchantResponseDto;
+import com.geopokrovskiy.dto.person_service.user.MerchantMemberCreateRequestDto;
+import com.geopokrovskiy.dto.person_service.user.MerchantMemberResponseDto;
 import com.geopokrovskiy.dto.user.MerchantMemberCreateRequestDto;
 import com.geopokrovskiy.dto.user.MerchantMemberResponseDto;
 import com.geopokrovskiy.mapper.invitation.InvitationMapper;
@@ -34,17 +39,17 @@ public class MerchantController {
     private final MerchantMemberMapper merchantMemberMapper;
 
     @PostMapping
-    public ResponseEntity<Mono<MerchantResponseDto>> addNewMerchant(@RequestBody MerchantCreateRequestDto merchantCreateRequestDto) {
+    public ResponseEntity<Mono<com.geopokrovskiy.dto.person_service.merchant.MerchantResponseDto>> addNewMerchant(@RequestBody MerchantMemberCreateRequestDto merchantCreateRequestDto) {
         return new ResponseEntity<>(merchantService.addNewMerchant(merchantMapper.map(merchantCreateRequestDto)).map(merchantMapper::map), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Mono<MerchantResponseDto>> getMerchantById(@PathVariable("id") UUID id) {
+    public ResponseEntity<Mono<com.geopokrovskiy.dto.person_service.merchant.MerchantResponseDto>> getMerchantById(@PathVariable("id") UUID id) {
         return new ResponseEntity<>((merchantService.getMerchantById(id).map(merchantMapper::map)), HttpStatus.OK);
     }
 
     @PostMapping("/create_invitation")
-    public ResponseEntity<Mono<InvitationResponseDto>> addNewInvitation(@RequestBody InvitationCreateRequestDto invitationCreateRequestDto) {
+    public ResponseEntity<Mono<com.geopokrovskiy.dto.person_service.invitation.InvitationResponseDto>> addNewInvitation(@RequestBody com.geopokrovskiy.dto.person_service.invitation.InvitationCreateRequestDto invitationCreateRequestDto) {
         return new ResponseEntity<>(invitationService.addNewInvitation(invitationMapper.map(invitationCreateRequestDto)).map(invitationMapper::map), HttpStatus.CREATED);
     }
 

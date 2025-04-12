@@ -1,5 +1,7 @@
 package com.geopokrovskiy.rest;
 
+import com.geopokrovskiy.dto.person_service.user.IndividualRequestDto;
+import com.geopokrovskiy.dto.person_service.user.IndividualResponseDto;
 import com.geopokrovskiy.dto.user.IndividualRequestDto;
 import com.geopokrovskiy.dto.user.IndividualResponseDto;
 import com.geopokrovskiy.mapper.address.AddressMapper;
